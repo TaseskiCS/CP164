@@ -1,0 +1,41 @@
+-------------------------------------------------------
+Lab 2
+-------------------------------------------------------
+Author:  Antonio Taseski
+ID:      169069663
+Email:   tase9663@mylaurier.ca
+Version: 2023-01-19
+-------------------------------------------------------
+-------------------------------------------------------
+t01
+-------------------------------------------------------
+None
+-------------------------------------------------------
+t02
+-------------------------------------------------------
+None
+-------------------------------------------------------
+t03
+-------------------------------------------------------
+Pushed: 1, Peek: 1
+Pushed: 2, Peek: 2
+Pushed: 3, Peek: 3
+Pushed: 4, Peek: 4
+Is stack empty? False
+Popped: 4, Peek: 3
+Popped: 3, Peek: 2
+Popped: 2, Peek: 1
+
+EXPECTED ERROR: 
+
+Traceback (most recent call last):
+  File "/Users/tony/Desktop/CP164/tase9663_l02/src/t03.py", line 17, in <module>
+    print(stack_test(stack))
+          ^^^^^^^^^^^^^^^^^
+  File "/Users/tony/Desktop/CP164/tase9663_data_structures/src/utilities.py", line 83, in stack_test
+    print(f"Popped: {source.pop()}, Peek: {source.peek()}")
+                                           ^^^^^^^^^^^^^
+  File "/Users/tony/Desktop/CP164/tase9663_data_structures/src/Stack_array.py", line 89, in peek
+    assert len(self._values) > 0, "Cannot peek at an empty stack"
+           ^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Cannot peek at an empty stack

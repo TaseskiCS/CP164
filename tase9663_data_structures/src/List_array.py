@@ -209,6 +209,10 @@ class List:
         -------------------------------------------------------
         """
         # Your code here
+        for i in self._values:
+            while self._values.count(i) > 1:
+                self._values.remove(i)
+
 
         return
 
@@ -229,6 +233,10 @@ class List:
         -------------------------------------------------------
         """
         # Your code here
+        while source1.is_empty() != True and source2.is_empty() != True:
+            self._values.append(source1.pop(0))
+            if source2.is_empty() != True:
+                self._values.append(source2.pop(0))
 
         return
 
@@ -346,6 +354,10 @@ class List:
         -------------------------------------------------------
         """
         # Your code here
+        for i in range(len(source1._values)):
+            if source1._values[i] in source2._values:
+                self._values.append(source1._values[i])
+                source2._values.remove(source1._values[i])
 
         return
 
@@ -379,8 +391,12 @@ class List:
         -------------------------------------------------------
         """
         # Your code here
+        if self._values == target._values:
+            equals = True
+        else:
+            equals = False
 
-        return
+        return equals
 
     def max(self):
         """
@@ -400,7 +416,7 @@ class List:
         value = self._values[0]
         for i in self._values:
             if i > value:
-                value = i
+                value = deepcopy(i)
 
         return value
 
@@ -419,7 +435,7 @@ class List:
         value = self._values[0]
         for i in self._values:
             if i < value:
-                value = i
+                value = deepcopy(i)
 
         return value
 
@@ -481,6 +497,7 @@ class List:
         -------------------------------------------------------
         """
         # Your code here
+        self._values.insert(0, value)
 
         return
 
@@ -519,6 +536,7 @@ class List:
         assert (len(self._values) > 0), 'Cannot remove from an empty list'
 
         # Your code here
+        value = self._values.pop(0)
 
         return
 
@@ -535,6 +553,8 @@ class List:
         -------------------------------------------------------
         """
         # Your code here
+        while key in self._values:
+            self._values.remove(key)
 
         return
 
@@ -566,8 +586,27 @@ class List:
         -------------------------------------------------------
         """
         # Your code here
+        target1 = List()
+        target2 = List()
+        if len(self._values) > 0:
+            mid = len(self._values) // 2
+            i = 0
+            if len(self._values) % 2 != 0:
+                while i <= mid:
+                    target1._values.append(self._values.pop(0))
+                    i += 1
+                while len(self._values) > 0:
+                    target2._values.append(self._values.pop(0))
+            else:
+                while i < mid:
+                    target1._values.append(self._values.pop(0))
+                    i += 1
+                while len(self._values) > 0:
+                    target2._values.append(self._values.pop(0))
 
-        return
+        return target1, target2
+
+
 
     def split_alt(self):
         """
@@ -583,8 +622,18 @@ class List:
         -------------------------------------------------------
         """
         # Your code here
+        target1 = List()
+        target2 = List()
+        while len(self._values) > 0:
 
-        return
+            target1._values.append(self._values.pop(0))
+
+            if len(self._values) > 0:
+
+                target2._values.append(self._values.pop(0))
+
+        return target1, target2
+
 
     def split_apply(self, func):
         """
@@ -641,6 +690,9 @@ class List:
         -------------------------------------------------------
         """
         # Your code here
+        for i in source1._values:
+            if i in source2._values:
+                self._values.append(i)
 
         return
 
